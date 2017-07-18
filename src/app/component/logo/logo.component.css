@@ -5,3 +5,15 @@
  .row_logo{
   margin: 5px 70px;
 }
+
+.logo_user_info{
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: right;
+    height: 65px;
+    padding-top:18px; 
+}
+
+.userLogo{
+    margin: 0 10px 0 25px;
+}

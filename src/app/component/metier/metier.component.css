@@ -1,3 +1,9 @@
+h4{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
 .row_metier_header{
     background: #019b77;
     color:white;
@@ -6,10 +12,16 @@
 
 }
 
+.header_text{
+  text-align: center;
+  padding-top: 15px;
+}
+
 .row_metier_step_img{
-    background: #019b77;
-    color:white;
-    height: 30px;
+    color: white;
+    height: 0px;
+    position: relative;
+    top: -30px;
 }
 .row_metier_step_img img{
 
@@ -52,7 +64,7 @@
 
 }
 .metier_text p{
-    
+    font-weight: bold;
     text-align: center;
     color: #444545;
     font-size: 19px;
@@ -181,7 +193,7 @@
 }
 
 .metier_button_inactive{
-    margin: 30px 0 145px 0;
+    margin: 95px 0 40px 0;
     padding: 10px 30px;
     text-align: center;
     border-radius: 5px;
@@ -194,7 +206,7 @@
 }
 
 .metier_button_active{
-    margin: 30px 0 145px 0;
+    margin: 95px 0 40px 0;
     padding: 10px 30px;
     text-align: center;
     border-radius: 5px;
@@ -250,8 +262,26 @@
     font-weight: bold;
     text-transform: uppercase;
 }
+.text_rappel {
+  margin-bottom: 50px;
+  margin-left: 45px;
+}
+.text_rappel p{
+  color: #444545;
+  font-size: 13px;
+}
 
+span.bold_text{
+    font-weight: bold;
+  color: #444545;
+}
 
+a.link_eprevention{
+  font-weight: bold;
+  color: #444545;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 .create_metier_popin_text {
  margin-bottom: 5px;
@@ -267,6 +297,9 @@
 .header_fileName{
   font-size: 20px;
 }
+
+
+
 
 
 /* ---------------------DROPDOWN MENU--------------------- */

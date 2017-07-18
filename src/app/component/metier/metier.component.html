@@ -1,9 +1,9 @@
 <div class="row row_header_link">
   <div class="col-xs-6 link_left">
-    <a href=""> Accueil</a> > <a (click)="gotoAccueil()" style="cursor:pointer">Evaluation des risques </a>> Mon/mes métiers
+    <a href=""> Accueil</a> > <a (click)="gotoAccueil()" style="cursor:pointer">Mon évaluation des risques </a>> Mon/mes métiers
   </div>
   <div class="col-xs-6 link_right">
-    > <a href="">Retour au tableau de bord</a>
+   
   </div>
 </div>
 <div class="row row_metier_header">
@@ -15,10 +15,13 @@
   <div class="col-xs-4 header_text">
     <div>
       <h1>
-        Évaluation des risques <br> {{title}}
+        Évaluation des risques 
       </h1>
+       <h4>
+        En 3 étapes, établissez votre Document Unique
+      </h4>
     </div>
-    <div class="header_fileName"># {{fileName}}</div>
+    
   </div>
   <div class="col-xs-4">
 
@@ -31,8 +34,7 @@
     <img src="assets/step1_active.png" alt=""> <img src="assets/step2_inactive.png" alt=""> <img src="assets/step3_inactive.png"
       alt="">
   </div>
-  <div class="col-xs-3" style="text-align:center">
-    <a data-toggle="modal" data-target="#popin_change_fileName" class="metier_change_name">Modifier le nom du dossier</a>
+  <div class="col-xs-3" >
   </div>
 </div>
 
@@ -55,13 +57,12 @@
   <div class="row">
     <div class="col-xs-4 metier_search_title">
       <p>Tapez et sélectionnez le nom du métier</p>
-      <a href="" data-toggle="modal" data-target="#popin_create_metier">Créez un nouveau métier</a>
+
     </div>
     <div class="col-xs-4 metier_search_box">
       <input placeholder="ex:Peintre" #searchBox id="search-box" (keyup)="search(searchBox.value)">
       <div class="search-result-border">
-        <div *ngFor="let searchMetier of searchMetiers | async" (click)='addMetier(searchMetier["metier"].id); searchBox.value="";'
-          class="search-result">
+        <div *ngFor="let searchMetier of searchMetiers | async" (click)='addMetier(searchMetier["metier"].id); searchBox.value="";' class="search-result">
           {{searchMetier.name}}
         </div>
       </div>
@@ -88,90 +89,11 @@
       </button>
     </div>
   </div>
-</div>
-
-<!--Modal Create metier-->
-<div class="modal fade" id="popin_change_fileName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#ffffff;">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modifier le nom de votre dossier</h4>
-      </div>
-      <div class="modal-body">
-        <div>
-          {{title}}
-        </div>
-        <div>
-          {{fileName}}
-        </div>
-        <div class="" style="text-align:center;">
-          <button class="metier_button_create" >
-            Validez
-          </button>
-        </div>
-        <div class="metier_cancel" style="text-align:center;">
-          <a href="" data-dismiss="modal">Annuler</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Modal Create metier-->
-<div class="modal fade" id="popin_create_metier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#ffffff;">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Créez un nouveau métier</h4>
-      </div>
-      <div class="modal-body">
-        <div class="metier_name_block">
-          <label for="metier_name" class="label_for_metier_name">Intitulé du métier* </label><input type="text" id="metier_name"
-            #metierNameInput placeholder="Donnez un nom à votre métier">
-        </div>
-        <div class="create_metier_popin_text">
-          <p>
-            Cochez ci-dessous les situations de travail correspondant à ce nouveau métier.
-          </p>
-        </div>
-        <div class='working-situation-block'>
-
-          <div *ngFor="let STGroup of situationTravailGroups; let i = index">
-
-            <div class='working-situation-menu' (click)="dropDownList($event)"> {{STGroup.name}}
-              <div class='expand'></div>
-            </div>
-            <div class='sub-menu mCustomScrollbar' scrollbar>
-              <ul>
-                <li>
-                  <input id="checkAll{{i}}" data-md-icheck type="checkbox" class="checkAll" (click)="checkAll()">
-                  <label for="checkAll{{i}}"> <i>Tou Selectionner</i></label>
-                </li>
-                <li *ngFor="let ST of STGroup.situationTravails">
-                  <input id="st{{ST.id}}" data-md-icheck type="checkbox" class="checkSituation" value= '{{ST["@id"]}}'>
-                  <label for="st{{ST.id}}">{{ST.name}}</label>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-        <div class="create_metier_popin_text">
-          <p>
-            Vous rencontrez une situation de travail qui ne se trouve pas dans la liste ? <br> Vous pourrez l'ajouter à l'étape 2.
-          </p>
-        </div>
-        <div class="" style="text-align:center;">
-          <button data-dismiss="modal" class="metier_button_create" (click)='createCustomMetier(metierNameInput.value);metierNameInput.value=""'>
-            Validez
-          </button>
-        </div>
-        <div class="metier_cancel" style="text-align:center;">
-          <a href="" data-dismiss="modal">Annuler</a>
-        </div>
-      </div>
+  <div  class="row"> 
+    <div class="col-xs-12 " class="text_rappel" style="text-align:left;">
+      <p>
+        <span class="bold_text">Rappel:</span> Cette première évaluation vous permet d'identifier les risques principaux liés à votre évaluation des risques <a class="link_eprevention">sur eprévention</a>
+      </p>
     </div>
   </div>
 </div>

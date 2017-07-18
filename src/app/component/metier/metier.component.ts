@@ -32,9 +32,11 @@ export class MetierComponent implements OnInit, AfterViewInit {
   fileId = "-1";
   mode = "STD"
   orgId: string = "-1"
-  evaluationId = JSON.parse(localStorage.getItem('evaluationLS')).evaluationId;
+  evaluationId = 25;
+
+
   token = JSON.parse(localStorage.getItem('token')).token;
-  fileName = JSON.parse(localStorage.getItem('evaluationLS')).fileName;
+  fileName = "test 3"
   situationTravailGroups: SituationTravail[];
   currentMetiers: CurrentMetier[];
 

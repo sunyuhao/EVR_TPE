@@ -1,0 +1,211 @@
+<div class="row row_header_link">
+  <div class="col-xs-6 link_left">
+    <a href=""> Accueil</a> > Evaluation des risques
+  </div>
+  <div class="col-xs-6 link_right">
+    > <a href="">Retour au tableau de bord</a>
+  </div>
+</div>
+
+<div class="row row_accueil_header">
+  <div class="col-xs-4 header_image">
+    <div>
+      <img src="assets/bord.png" alt="">
+    </div>
+  </div>
+  <div class="col-xs-5 header_text">
+    <div>
+      <h1>
+        Évaluation des risques <br> {{title}}
+      </h1>
+      <h4>
+        En 3 étapes, établissez votre Document Unique
+      </h4>
+    </div>
+  </div>
+  <div class="col-xs-4">
+
+  </div>
+</div>
+<div class="border">
+  <div class="row">
+    <div class="col-xs-4  accueil_text_background">
+      <p class="accueil_text">
+        <strong>L’évaluation des risques pour votre entreprise est une obligation réglementaire.</strong> Elle vous permet d’identifier,
+        avec vos collaborateurs, les risques professionnels auxquels ils sont soumis et de mettre en place ensemble un plan
+        d’action ; cette évaluation est consignée dans votre DUER (Document Unique d’évaluation des risques).
+      </p>
+    </div>
+    <div class="col-xs-4  accueil_text_background">
+      <p class="accueil_text">
+        <strong>L’outil proposé par l’OPPBTP,</strong> structuré autour des situations de travail des principaux métiers
+        du BTP, vous aide à apprécier le niveau de prévention en place dans votre entreprise, face aux risques identifiés pour
+        votre activité.
+      </p>
+    </div>
+    <div class="col-xs-4 ">
+      <p class="accueil_text">
+        <strong>Avant de commencer une évaluation,</strong> pensez à la façon dont votre activité est organisée (exemples
+        : bureaux, dépôt, atelier, chantiers…). Ceci vous permettra de définir des unités de travail regroupant les salariés
+        exposés de façon similaire à des risques professionnels.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="accueil_button_block">
+        <div class="accueil_button_left">
+          <div style="margin-bottom:20px;">
+            <p class="accueil_title_create">
+              Créer une nouvelle évaluation des risques
+            </p>
+          </div>
+          <div style="text-align:center;">
+            <button class="accueil_button_create" data-toggle="modal" data-target="#popin_create_evaluation">
+              COMMENCER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="accueil_button_block">
+        <div class="accueil_button_right">
+          <div style="margin-bottom:5px;">
+            <p class="accueil_title_create">
+              Continuer/modifier une évaluation des risques existante
+            </p>
+          </div>
+          <div style="text-align:center; margin-bottom:10px;">
+            <select class="select-evaluation" [(ngModel)]="fileId" (ngModelChange)="getFileId()">
+              <option value="-1" disabled selected>Choisir</option>
+              <option  *ngFor="let evaluation of allEvaluations"  [value]="evaluation.id"  >
+                {{evaluation.name}}
+              </option>
+            </select>
+          </div>
+          <div style="text-align:center;">
+            <div class="col-xs-4 accueil_delete">
+              <a href="" data-toggle="modal" data-target="#popin_delete_evaluation"> Supprimer </a>
+            </div>
+            <div class="col-xs-4">
+              <button class="accueil_button_create" (click)="continueEvaluation(fileId)">
+                REPRENDRE
+              </button>
+            </div>
+            <div class="col-xs-4 ">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal create-->
+<div class="modal fade" id="popin_create_evaluation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#ffffff;">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Création d'un nouveau dossier d'évaluation des risques</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p class="popin_text_top">
+            Vous allez créer un dossier d’évaluation des risques qui vous permettra de générer le DUER ainsi que ses annexes et de formaliser
+            un plan d’action.
+          </p>
+          <p class="popin_text_middle">
+            <span class="point"><img src="assets/accueil_green_point.jpg" alt=""></span> Créez un seul dossier d’évaluation
+            pour tous vos salariés exposés à des risques communs <br>
+            <span class="point"><img src="assets/accueil_green_point.jpg" alt=""></span> Ou créez plusieurs dossiers, chacun
+            regroupant des salariés exposés à des risques spécifiques liés à leur activité (exemples : bureaux, dépôt, atelier,
+            type de chantiers...)
+          </p>
+        </div>
+        <div class="file_name_block">
+          <label for="file_name" class="label_for_file_name">Nom du dossier* : </label><input type="text" id="file_name"
+            #MarkerEvalInput>
+        </div>
+        <div class="checkbox_exist">
+          <input id="check_create_by_exist" data-md-icheck (change)="toggleClass($event)" type="checkbox" name="exisit_file" class="exisit_file">
+          <label for="check_create_by_exist">Créer un nouveau dossier à partir d’un dossier existant</label>
+        </div>
+        <div class="row create_by_existe hide">
+          <div class="col-xs-6">
+            <select class="select-exist" [(ngModel)]="orgId" (ngModelChange)="getEvaluations(orgId)">
+                <option value="-1" selected>Choisir une entreprise</option>
+                <option  *ngFor="let organisation of organisations"  [value]="organisation.organizationId"  >
+                  {{organisation.displayName}}
+                </option>
+            </select>
+          </div>
+          <div class="col-xs-6">
+            <div style="text-align:center; margin-bottom:10px;">
+              <select class="select-evaluation" #MarkerEvalId>
+                <option value="-1" disabled selected>Choisir</option>
+                <option  *ngFor="let evaluation of evaluations"  [value]="evaluation.id"  >
+                  {{evaluation.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="create_with_new" style="text-align:center;">
+          <button class="accueil_button_create" data-dismiss="modal" (click)="createEvaluation(MarkerEvalInput.value);">
+              Créer le dossier
+          </button>
+        </div>
+        <div class="create_with_exist hide" style="text-align:center;">
+          <button class="accueil_button_create" data-dismiss="modal" (click)="createEvaluationByExist(MarkerEvalInput.value,orgId,MarkerEvalId.value);">
+              Créer le dossier
+          </button>
+        </div>
+        <div class="accueil_cancel" style="text-align:center;">
+          <a href="" data-dismiss="modal">Annuler</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="popin_delete_evaluation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#ffffff;">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Supprimer le dossier</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p class="popin_text_top">
+            Vous allez supprimer définitivement le dossier d'évaluation des risques :
+          </p>
+        </div>
+        <div class="continue_file_name">
+          <p class="continue_file_name_text" *ngIf="oneEvaluation">
+            {{oneEvaluation.name}}
+          </p>
+        </div>
+        <div>
+          <p class="popin_text_top">
+            Confirmez-vous la suppression ? (Les fichiers PDF des documents uniques que vous avez générés à partir de ce dossier ne seront
+            pas supprimés.)
+          </p>
+        </div>
+        <div class="" style="text-align:center;">
+          <button class="accueil_button_create" (click)="deleteEvaluation(fileId); " data-dismiss="modal">
+            Confirmer la suppression
+          </button>
+        </div>
+        <div class="accueil_cancel" style="text-align:center;">
+          <a href="" data-dismiss="modal">Annuler</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

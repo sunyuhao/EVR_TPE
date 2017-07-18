@@ -1,0 +1,223 @@
+.row_accueil_header{
+    background: #019b77;
+    color:white;
+    padding: 25px;
+    height: 200px;
+    /*margin: 0 70px;*/
+}
+
+.border{
+    border-top: 12px solid #6cc29d;
+    padding: 0 45px;
+    /*border-left: 3px solid #6cc29d;
+    border-right: 3px solid #6cc29d;
+    border-bottom: 0 solid #6cc29d;
+    margin: 0 70px;*/
+}
+
+
+.accueil_text{
+    padding:30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.accueil_text_background{
+    background: url('../../../assets/seprate.png');
+    background-position: 345px 55px;
+    background-repeat: no-repeat;
+}
+
+.accueil_button_block{
+
+    padding: 20px 25px;
+}
+
+.accueil_button_left{
+    border-radius: 5px;
+    width: 450px;
+    height: 215px;
+    padding: 30px 70px;
+    border: 3px solid #019b77;
+}
+
+.accueil_button_right{
+    border-radius: 5px;
+    width: 450px;
+    height: 215px;
+    padding: 20px 50px;
+    border: 3px solid #019b77;
+}
+
+.accueil_title_create{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.accueil_button_create{
+    padding: 10px 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #019b77;
+    background-color: #ffffff;
+    color: #019b77;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.select-evaluation{
+    width: 260px;
+    height: 30px;
+}
+
+.accueil_delete{
+    padding: 10px 0;
+    height: 25px;
+    text-align: left;
+    width: 100px;
+}
+.accueil_delete a{
+    text-decoration:underline;
+    color: #6c6c6c;
+
+}
+
+.accueil_cancel{
+    padding: 10px 0;
+    height: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.accueil_cancel a{
+    text-decoration:underline;
+    color: #000000;
+    font-weight: bold;
+
+}
+
+
+
+.popin_text_top{
+    font-size: 12px;
+}
+.popin_text_middle{
+    font-size: 12px;
+}
+
+.label_for_file_name{
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+#file_name{
+    width:285px;
+    height: 32px;
+    margin-left: 15px;;
+    font-size: 15px;
+}
+
+.create_by_existe{
+    margin-bottom: 15px;
+}
+
+.file_name_block{
+    margin-bottom: 15px;
+}
+.checkbox_exist{
+    margin-bottom: 15px;
+}
+
+.select-exist{
+    width:245px;
+    height: 32px;
+}
+
+.continue_file_name{
+margin-bottom: 20px;
+}
+.continue_file_name_text{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* check box */
+input[type="checkbox"] {
+    display: none!important;
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left:25px;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #333;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: .1em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #000000;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px solid black;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 2px solid #000!important;
+}

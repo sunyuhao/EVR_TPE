@@ -1,0 +1,112 @@
+body {
+  color: #000000;
+}
+.container{
+  width: 1170px;
+}
+/* remove margin in row */
+
+.row {
+    margin-left:0;
+    margin-right:0;
+}
+
+/* remove padding in col- */
+  [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+.row_header_link{
+  margin: 0 70px;
+}
+
+.header_image{
+  text-align: right;
+}
+.header_text{
+  text-align: center;
+}
+.modal-dialog {
+    width: 600px !important;
+    margin: 90px auto;
+}
+.modal-header{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #019b77;
+    padding-left: 45px;
+}
+.modal-header h4 {
+    color: #ffffff;
+    font-weight: bold;
+}
+.modal-body{
+     padding-left: 45px;
+     padding-right: 45px;
+}
+
+p{
+  margin-bottom: 0;
+}
+
+.link_left {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+}
+.link_left a{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    text-decoration: none;
+}
+
+
+.link_right {
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    font-weight: bold;
+}
+
+.link_right a{
+    text-align: right;
+    font-family:  Helvetica, sans-serif;
+    font-size: 11px;
+    color: #6c6c6c;
+    text-decoration: underline;
+
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+     text-shadow: 0 0 0 #fff; 
+    filter: alpha(opacity=20);
+     opacity: 1;
+}
+
+
+button.close{
+    border: 2px solid #ffffff;
+    border-radius: 26px;
+    width: 25px;
+    height: 25px;
+}
+    /*------------------- scrollbar custom color to dark-3 ----------------------*/
+	.mCS-dark-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: #019b77; background-color:rgba(1, 155, 119,0.75) }
+
+	.mCS-dark-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{ background-color: #019b77; background-color: rgba(1, 155, 119,0.85) }
+
+	.mCS-dark-3.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+    .mCS-dark-3.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{ background-color: #019b77; background-color: rgba(1, 155, 119,0.9);}
+    .mCSB_dragger_bar, .mCSB_draggerRail{
+        margin-left: 10px !important;
+        margin-right: 0   !important;
+    }

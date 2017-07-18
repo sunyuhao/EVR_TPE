@@ -1,0 +1,22 @@
+.footer_padding{
+    padding: 15px 75px;;
+    background-color: #4e4e4e;
+    color:#ffffff;
+    height: 70px;
+   
+}
+
+.footer_links {
+  text-align:center;
+  padding-top:10px;
+  font-weight:bold;
+}
+
+.footer_links a{
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+
+}
